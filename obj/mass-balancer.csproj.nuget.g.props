@@ -7,12 +7,12 @@
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/daniel/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/daniel/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.8.1</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.12.4</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="/home/daniel/.nuget/packages/" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgSentry Condition=" '$(PkgSentry)' == '' ">/home/daniel/.nuget/packages/sentry/4.3.0</PkgSentry>
+    <PkgSentry Condition=" '$(PkgSentry)' == '' ">/home/daniel/.nuget/packages/sentry/5.1.1</PkgSentry>
   </PropertyGroup>
 </Project>

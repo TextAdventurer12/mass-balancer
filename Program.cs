@@ -21,18 +21,34 @@ namespace MassBalancer
         const int NUM_REGRESSIONS = 20;
         const double STEP_MULT = 1.05;
 
+        private static ScoreSimulatorInfo FromCsvLine(string line)
+        {
+            string[] fields = line.Split(",");
+            return new ScoreSimulatorInfo(
+                    mapID: int.Parse(fields[0]),
+                    countOk: int.Parse(fields[1]),
+                    countMeh: int.Parse(fields[2]),
+                    countMiss: int.Parse(fields[3]),
+                    targetPP: int.Parse(fields[4]),
+                    combo: int.Parse(fields[5]),
+                    name: fields[6],
+                    mods: fields[7]
+            );
+        }
+
+        private static IEnumerable<ScoreSimulatorInfo> FromCsv(string filename)
+        {
+            using (var reader = new StreamReader(filename))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                    yield return FromCsvLine(line);
+            }
+        }
+
         public static void Main(string[] args)
         {
-            List<ScoreSimulatorInfo> plays = new List<ScoreSimulatorInfo>()
-            {
-                new ScoreSimulatorInfo(1754777, countOk: 84, combo: 2260, mods: "HDDT", targetPP: 1550, name: "Sidetracked Day"),
-                new ScoreSimulatorInfo(3675267, countOk: 14, mods: "DT", targetPP: 1400, name: "Accolibed Azul Remix"),
-                new ScoreSimulatorInfo(1711326, countOk: 45, countMeh: 1, mods: "DT", combo: 1577, targetPP: 1500, name: "Owari"),
-                new ScoreSimulatorInfo(1811527, countOk: 62, countMeh: 2, countMiss: 2, combo: 4088, mods: "DT", targetPP: 1400, name: "mrekk Save me [Nightmare]"),
-                new ScoreSimulatorInfo(2069969, countOk: 37, combo: 1477, mods: "HDDTHR", targetPP: 1380, name:"Rat Race 3mod"),
-                new ScoreSimulatorInfo(4415584, mods:"HDDTHR", targetPP: 1280, name:"Kuki brazil 3mod SS"),
-                new ScoreSimulatorInfo(111680, countOk: 46, combo: 1106, mods:"HDDTHR", targetPP: 1400, name:"ath 3mod"),
-            };
+            List<ScoreSimulatorInfo> plays = FromCsv("scores.csv").ToList();
             Constants constants = new Constants();
             IEnumerable<PropertyInfo> consts = typeof(Constants).GetProperties(BindingFlags.Instance | BindingFlags.Public);
             double initialDeviation = DifferenceDev(plays);

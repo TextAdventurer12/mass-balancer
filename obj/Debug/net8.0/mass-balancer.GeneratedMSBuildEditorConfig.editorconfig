@@ -8,7 +8,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = mass_balancer
-build_property.ProjectDir = /home/daniel/Documents/osu/constantOptimiser/mass-balancer/
+build_property.ProjectDir = /home/daniel/Documents/osu-dev/mass-balancer/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.PolySharpUsePublicAccessibilityForGeneratedTypes = 
@@ -17,3 +17,5 @@ build_property.PolySharpUseInteropServices2NamespaceForUnmanagedCallersOnlyAttri
 build_property.PolySharpExcludeGeneratedTypes = 
 build_property.PolySharpIncludeGeneratedTypes = 
 build_property.PolySharpExcludeTypeForwardedToDeclarations = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
